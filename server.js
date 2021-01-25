@@ -99,7 +99,7 @@ function authenticator(req, res, next) {
     res.status(403).json({ error: "User must be logged in to do that." });
   }
 }
-
+//username: 'Lambda School', password: 'i<3Lambd4'
 app.post("/api/login", (req, res) => {
   const { username, password } = req.body;
   if (username === "user" && password === "guest") {

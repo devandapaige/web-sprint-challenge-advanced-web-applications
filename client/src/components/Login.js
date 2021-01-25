@@ -14,13 +14,11 @@ const Login = () => {
   // when you have handled the token, navigate to the BubblePage route
   const [loginForm, setLoginForm] = useState(initialLogin);
   const history = useHistory();
-
   const handleChange = (e) => {
+    e.preventDefault();
     setLoginForm({
-      login: {
-        ...loginForm,
-        [e.target.name]: e.target.value,
-      },
+      ...loginForm,
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -39,9 +37,11 @@ const Login = () => {
   return (
     <>
       <h1>Welcome to the Bubble App!</h1>
+      {/*<button onClick={(Link = "/bubbles")}>Bubbles Page</button>*/}
       <form onSubmit={handleSubmit}>
         <input
           name="username"
+          id="username"
           type="text"
           value={loginForm.username}
           onChange={handleChange}
@@ -49,6 +49,7 @@ const Login = () => {
         />
         <input
           name="password"
+          id="password"
           type="password"
           value={loginForm.password}
           onChange={handleChange}
